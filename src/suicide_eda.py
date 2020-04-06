@@ -84,5 +84,6 @@ if __name__=='__main__':
     master_happy = master_happiness_dict(scrubbed_scores, scrubbed_count)
 
     #Making a new pandas dataframe out of the above dictionary
-    cumulative_happiness = pd.DataFrame(master_happy.items(), columns=['country', 'cumulative_happiness_score'])
+    s = pd.DataFrame(master_happy.items(), columns=['country', 'cumulative_happiness_score'])
+    cumulative_happiness = s.sort_values(by=['cumulative_happiness_score'], ascending=False)
     
