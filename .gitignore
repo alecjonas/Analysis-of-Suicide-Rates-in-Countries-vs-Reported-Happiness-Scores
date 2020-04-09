@@ -7,3 +7,5 @@ data/master.csv
 jupyter_notebooks/.ipynb_checkpoints/adjusted_happiness_scores_in_suicide_db-checkpoint.ipynb
 notebooks/.ipynb_checkpoints/adjusted_happiness_scores_in_suicide_db-checkpoint.ipynb
 notebooks/.ipynb_checkpoints/suicides_eda-checkpoint.ipynb
+notebooks/#world_happiness_folium_chloropleth_USA1.html
+notebooks/.ipynb_checkpoints/Hypothesis_Test-checkpoint.ipynb
