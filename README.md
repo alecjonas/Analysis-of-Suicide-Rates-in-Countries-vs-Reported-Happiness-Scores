@@ -15,6 +15,10 @@ I decided to compare suicide rates in the last 30 years between countries that r
 ## Data
 The World Happiness Report contains data between 2015 and 2019, while the Suicde Database contains data from 1986-2016. I averaged the happiness scores in the 5 .csv files and then compared that to countries that were actually represented in the suicide database. At this point, I was able to pull the top and bottom 10 happy countries to start drawing comparisons. I assumed that countries that ranked highly in happiness between 2015-2019 were also generally happy from 1986-2016 and the same for the bottom happiness countries. It's fair to say that this is a big leap, but I believe that the scores vary widely enough between them to support my assumption.
 
+Here is a map of countries that are ranked in my happiness dataframe:
+
+![Image](images/choropleth.png)
+
 Here are the top and bottom 10 happiest countries:
 
 | Top 10 Country | Happiness Score | 
