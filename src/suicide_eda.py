@@ -28,7 +28,7 @@ def count_of_occurances(list_of_dicts):
                 d[k]+=1
     return d
 
-#Want to make one list of country's but only look at countries that appear in the suicide Database
+#Make one list of countries but only look at countries that appear in the suicide Database
 def suicide_scrub(dictionary, _list):
     d={}
     for k,v in dictionary.items():
@@ -44,7 +44,7 @@ def master_happiness_dict(scores, count):
         d[k]=scores[k]/count[k]
     return d
 
-#Combines the above functions into process
+#Combines the above functions into one process to use on all metrics
 def make_cumulative_df(metric_2015, metric_2016, metric_2017, metric_2018, metric_2019, name_of_column):
     list_of_dicts = [metric_2015, metric_2016, metric_2017, metric_2018, metric_2019]
     cumulative_scores = one_dict(list_of_dicts)
@@ -72,6 +72,7 @@ def make_metric_graphs(nested_list_of_metric_dfs_and_column_names):
     list_of_metric_graphs = [compare_all_metrics_to_happiness(i[0], i[1]) for i in nested_list_of_metric_dfs_and_column_names]
     return list_of_metric_graphs
 
+#This can be used to visually examine the suicide rates between two countries over time
 def compare_suicide_rates(country1, country2):
     country1_mask = suicides['country'] == country1
     country1_df = suicides[country1_mask]
@@ -199,7 +200,7 @@ if __name__=='__main__':
     countries_in_the_suicides_df=suicides.country.unique()
     list_of_suicide_countries = countries_in_the_suicides_df.tolist()
 
-    #Dict for Happiness
+    #Dict and Df for Happiness
     h2015_dict = pd.Series(h2015.happiness_score.values,index=h2015.country).to_dict()
     h2016_dict = pd.Series(h2016.happiness_score.values,index=h2016.country).to_dict()
     h2017_dict = pd.Series(h2017.happiness_score.values,index=h2017.country).to_dict()
@@ -208,7 +209,7 @@ if __name__=='__main__':
 
     cumulative_happiness = make_cumulative_df(h2015_dict, h2016_dict, h2017_dict, h2018_dict, h2019_dict, 'cumulative_happiness_score')
 
-    #Dict for GDP
+    #Dict and Df for GDP
     gdp_2015_dict = pd.Series(h2015.economy_gdp_per_capita.values,index=h2015.country).to_dict()
     gdp_2016_dict = pd.Series(h2016.economy_gdp_per_capita.values,index=h2016.country).to_dict()
     gdp_2017_dict = pd.Series(h2017.economy__gdp_per_capita_.values,index=h2017.country).to_dict()
@@ -217,7 +218,7 @@ if __name__=='__main__':
 
     cumulative_gdp = make_cumulative_df(gdp_2015_dict, gdp_2016_dict, gdp_2017_dict, gdp_2018_dict, gdp_2019_dict, 'cumulative_gdp')
 
-    #Dict for Family
+    #Dict and Df for Family
     family_2015_dict = pd.Series(h2015.family.values,index=h2015.country).to_dict()
     family_2016_dict = pd.Series(h2016.family.values,index=h2016.country).to_dict()
     family_2017_dict = pd.Series(h2017.family.values,index=h2017.country).to_dict()
@@ -226,7 +227,7 @@ if __name__=='__main__':
 
     cumulative_family = make_cumulative_df(family_2015_dict, family_2016_dict, family_2017_dict, family_2018_dict, family_2019_dict, 'cumulative_family')
     
-    #Dict for health_life_expectancy
+    #Dict and Df for health_life_expectancy
     hle_2015_dict = pd.Series(h2015.health_life_expectancy.values,index=h2015.country).to_dict()
     hle_2016_dict = pd.Series(h2016.health_life_expectancy.values,index=h2016.country).to_dict()
     hle_2017_dict = pd.Series(h2017.health__life_expectancy_.values,index=h2017.country).to_dict()
@@ -235,7 +236,7 @@ if __name__=='__main__':
 
     cumulative_health_life_expectancy = make_cumulative_df(hle_2015_dict,hle_2016_dict, hle_2017_dict, hle_2018_dict, hle_2019_dict, 'cumulative_health_life_expectancy')
 
-    #Dict for freedom
+    #Dict and Df for freedom
     freedom_2015_dict = pd.Series(h2015.freedom.values,index=h2015.country).to_dict()
     freedom_2016_dict = pd.Series(h2016.freedom.values,index=h2016.country).to_dict()
     freedom_2017_dict = pd.Series(h2017.freedom.values,index=h2017.country).to_dict()
@@ -244,7 +245,7 @@ if __name__=='__main__':
 
     cumulative_freedom = make_cumulative_df(freedom_2015_dict, freedom_2016_dict, freedom_2017_dict, freedom_2018_dict, freedom_2019_dict, 'cumulative_freedom')
 
-    # Dict for trust_government_corruption
+    # Dict and Df for trust_government_corruption
     corruption_2015_dict = pd.Series(h2015.trust_government_corruption.values,index=h2015.country).to_dict()
     corruption_2016_dict = pd.Series(h2016.trust_government_corruption.values,index=h2016.country).to_dict()
     corruption_2017_dict = pd.Series(h2017.trust__government_corruption_.values,index=h2017.country).to_dict()
@@ -253,7 +254,7 @@ if __name__=='__main__':
 
     cumulative_trust_government_corruption = make_cumulative_df(corruption_2015_dict, corruption_2016_dict, corruption_2017_dict, corruption_2018_dict, corruption_2019_dict, 'cumulative_corruption')
 
-    # Dict for generosity
+    # Dict and Df for generosity
     generosity_2015_dict = pd.Series(h2015.generosity.values,index=h2015.country).to_dict()
     generosity_2016_dict = pd.Series(h2016.generosity.values,index=h2016.country).to_dict()
     generosity_2017_dict = pd.Series(h2017.generosity.values,index=h2017.country).to_dict()
